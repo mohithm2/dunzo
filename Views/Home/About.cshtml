@@ -1,7 +1,20 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<p>Use this area to provide additional information.</p>
+<div class="row">
+    <div class="col-md-5">
+        <h2>My details</h2>
+        <p>
+            Customer Details
+        </p>
+        <p><a class="btn btn-primary " href="~/Customers/Details">Customer details&raquo;</a></p>
+    </div>
+    
+    <div class="col-md-5">
+        <h2>Bookings</h2>
+        <p>
+            Create new booking
+        </p>
+        <p><a class="btn btn-primary" href="~/Bookings/Create">Bookings Entry &raquo;</a></p>
+    </div>
+</div>

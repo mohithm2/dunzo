@@ -23,14 +23,15 @@ namespace TriCourier.Controllers
         }
 
         // GET: Bookings/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
+            var id = User.Identity.Name;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
-            if (booking == null)
+            List<Booking> booking = db.Bookings.Where(t => t.Customer.Email_Id == id).ToList();
+            if (booking.Count() == 0)
             {
                 return HttpNotFound();
             }
