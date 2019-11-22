@@ -2,6 +2,8 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
+using System;
+using System.Web.Mvc;
 using TriCourier.Models;
 
 [assembly: OwinStartupAttribute(typeof(TriCourier.Startup))]
@@ -47,6 +49,7 @@ namespace TriCourier
                     var result1 = UserManager.AddToRole(user.Id, "Admin");
 
                 }
+
             }
 
             // creating Creating Manager role    
@@ -57,7 +60,7 @@ namespace TriCourier
                 roleManager.Create(role);
 
             }
-
+            
         
         }
     }

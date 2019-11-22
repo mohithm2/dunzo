@@ -1,17 +1,29 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<div class="jumbotron">
+    <h1>Courier Services</h1>
+    <p class="lead">A web application that aims to provide an effective solution for courier management.</p>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+</div>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div class="row">
+    <div class="col-md-5">
+        <h2>Categories</h2>
+        <p>
+            View all categories
+        </p>
+        <p><a class="btn btn-primary " href="~/Categories/Index">Category Entry &raquo;</a></p>
+    </div>
+    <div class="col-md-5">
+        <h2>Bookings</h2>
+        <p>
+            View all Bookings
+        </p>
+        <p><a class="btn btn-primary" href="~/Bookings/Index">Booking Entry &raquo;</a></p>
+    </div>
+    <div class="col-md-5">
+        <h2>Vehicles</h2>
+        <p>
+            View all vehicles
+        </p>
+        <p><a class="btn btn-primary" href="~/Vehicles/Index">Vehicle Entry &raquo;</a></p>
+    </div>
+</div>
