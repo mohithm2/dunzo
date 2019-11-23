@@ -83,7 +83,7 @@ namespace TriCourier.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    if(User.IsInRole("Admin"))
+                    if(model.Email=="admin@gmail.com")
                     {
                         return RedirectToAction("Contact", "Home");
                     }
@@ -172,13 +172,14 @@ namespace TriCourier.Controllers
                     
                     UserManager.AddToRole(currentUser.Id, "Customer");
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
+                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     LogOff();
+                    return RedirectToAction("Index", "Home");
                     
                 }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
@@ -409,7 +410,7 @@ namespace TriCourier.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Index", "Home");
         }
 
         //

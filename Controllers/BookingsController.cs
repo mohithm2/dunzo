@@ -33,7 +33,7 @@ namespace TriCourier.Controllers
             List<Booking> booking = db.Bookings.Where(t => t.Customer.Email_Id == id).ToList();
             if (booking.Count() == 0)
             {
-                return HttpNotFound();
+                return RedirectToAction("Create","Bookings");
             }
             return View(booking);
         }

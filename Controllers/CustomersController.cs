@@ -22,16 +22,17 @@ namespace TriCourier.Controllers
         }
 
         // GET: Customers/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
+            var id = User.Identity.Name;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = db.Customers.Where(t => t.Email_Id == id).ToList().FirstOrDefault() ;
             if (customer == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Create","Customers");
             }
             return View(customer);
         }
@@ -47,13 +48,14 @@ namespace TriCourier.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Email_Id,Phone_No")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,Name,Phone_No,Email_Id")] Customer customer)
         {
+            customer.Email_Id = User.Identity.Name;
             if (ModelState.IsValid)
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
 
             return View(customer);
