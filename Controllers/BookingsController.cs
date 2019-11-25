@@ -43,7 +43,7 @@ namespace TriCourier.Controllers
         {
             ViewBag.Category_Id = new SelectList(db.Categories, "Id", "Name");
             ViewBag.Customer_ID = new SelectList(db.Customers, "Id", "Name");
-            ViewBag.Customer_ID = new SelectList(db.Delivery_Agent, "Id", "Phone_No");
+            ViewBag.Delivery_Agent = new SelectList(db.Delivery_Agent, "Id", "Phone_No");
             return View();
         }
 
@@ -63,7 +63,7 @@ namespace TriCourier.Controllers
 
             ViewBag.Category_Id = new SelectList(db.Categories, "Id", "Name", booking.Category_Id);
             ViewBag.Customer_ID = new SelectList(db.Customers, "Id", "Name", booking.Customer_ID);
-            ViewBag.Customer_ID = new SelectList(db.Delivery_Agent, "Id", "Phone_No", booking.Customer_ID);
+            ViewBag.Delivery_Agent = new SelectList(db.Delivery_Agent, "Id", "Phone_No", booking.Customer_ID);
             return View(booking);
         }
 
