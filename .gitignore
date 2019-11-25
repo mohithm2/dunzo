@@ -338,3 +338,10 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Migrations/Configuration.cs
+/Migrations/201911230236256_Initial.resx
+/Migrations/201911230236256_Initial.Designer.cs
+/Migrations/201911230236256_Initial.cs
+/Migrations
+/Content/bootstrap-flatly.css
+/Content

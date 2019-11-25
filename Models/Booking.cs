@@ -10,17 +10,21 @@ namespace TriCourier.Models
     public partial class Booking
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name ="Booking ID")]
         public int Id { get; set; }
 
         [Required]
         [StringLength(255)]
+        [Display(Name ="Pick-up address")]
         public string From_addr { get; set; }
 
         [Required]
         [StringLength(255)]
+        [Display(Name ="Destination address")]
         public string To_Addr { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name ="Booking date")]
         public DateTime Booking_Date { get; set; }
 
         public int Weight { get; set; }
